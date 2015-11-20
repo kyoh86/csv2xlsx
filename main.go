@@ -21,7 +21,7 @@ func main() {
 	app := kingpin.New("csv2xlsx", "Convert and combine csv files to a xlsx file")
 	app.Arg("sources", "Input CSV files").Required().ExistingFilesVar(&sources)
 	app.Flag("output", "Output XLSX file name").Short('o').Required().StringVar(&output)
-	app.Flag("delimiter", "Delimiter of input CSV files").Short('d').Default(",").StringVar(&delimiter)
+	app.Flag("delimiter", "Delimiter of input CSV files").Short('d').Default("\t").StringVar(&delimiter)
 	kingpin.MustParse(app.Parse(os.Args[1:]))
 
 	if err := combineCSVtoXLSX(sources, output, delimiter); err != nil {
@@ -49,7 +49,7 @@ func appendCSVtoXLSX(csvPath string, xlsxFile *xlsx.File, delimiter string) erro
 	if len(delimiter) > 0 {
 		reader.Comma = rune(delimiter[0])
 	} else {
-		reader.Comma = rune(';')
+		reader.Comma = rune('\t')
 	}
 	sheet, err := xlsxFile.AddSheet(csvPath)
 	if err != nil {
