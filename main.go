@@ -20,8 +20,8 @@ func main() {
 
 	app := kingpin.New("csv2xlsx", "Convert and combine csv files to a xlsx file")
 	app.Arg("sources", "Input CSV files").Required().ExistingFilesVar(&sources)
-	app.Flag("output", "Output XLSX file name").Required().StringVar(&output)
-	app.Flag("delimiter", "Delimiter of input CSV files").Default(",").StringVar(&delimiter)
+	app.Flag("output", "Output XLSX file name").Short('o').Required().StringVar(&output)
+	app.Flag("delimiter", "Delimiter of input CSV files").Short('d').Default(",").StringVar(&delimiter)
 	kingpin.MustParse(app.Parse(os.Args[1:]))
 
 	if err := combineCSVtoXLSX(sources, output, delimiter); err != nil {
