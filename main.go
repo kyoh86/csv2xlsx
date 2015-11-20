@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/csv"
 	"fmt"
+	"io"
 	"log"
 	"os"
 
@@ -64,7 +65,7 @@ func appendCSVtoXLSX(csvPath string, xlsxFile *xlsx.File, delimiter string) erro
 		}
 		fields, err = reader.Read()
 	}
-	if err != nil {
+	if err != nil && err != io.EOF {
 		return fmt.Errorf("failed to load row %s", err)
 	}
 	return nil
