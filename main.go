@@ -8,7 +8,6 @@ import (
 	"os"
 
 	"github.com/tealeg/xlsx"
-
 	"gopkg.in/alecthomas/kingpin.v2"
 )
 
