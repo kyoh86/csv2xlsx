@@ -8,7 +8,14 @@ import (
 	"os"
 
 	"github.com/tealeg/xlsx"
-	"gopkg.in/alecthomas/kingpin.v2"
+	"github.com/alecthomas/kingpin"
+)
+
+// nolint
+var (
+	version = "snapshot"
+	commit  = "snapshot"
+	date    = "snapshot"
 )
 
 func main() {
@@ -18,7 +25,7 @@ func main() {
 		delimiter string
 	)
 
-	app := kingpin.New("csv2xlsx", "Convert and combine csv files to a xlsx file")
+	app := kingpin.New("csv2xlsx", "Convert and combine csv files to a xlsx file").Version(version).Author("kyoh86")
 	app.Arg("sources", "Input CSV files").Required().ExistingFilesVar(&sources)
 	app.Flag("output", "Output XLSX file name").Short('o').Required().StringVar(&output)
 	app.Flag("delimiter", "Delimiter of input CSV files").Short('d').Default("\t").StringVar(&delimiter)
