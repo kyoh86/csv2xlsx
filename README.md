@@ -2,6 +2,7 @@
 
 Convert and combine csv files to a xlsx file
 
+[![PkgGoDev](https://pkg.go.dev/badge/kyoh86/csv2xlsx)](https://pkg.go.dev/kyoh86/csv2xlsx)
 [![Go Report Card](https://goreportcard.com/badge/github.com/kyoh86/csv2xlsx)](https://goreportcard.com/report/github.com/kyoh86/csv2xlsx)
 [![Coverage Status](https://img.shields.io/codecov/c/github/kyoh86/csv2xlsx.svg)](https://codecov.io/gh/kyoh86/csv2xlsx)
 [![Release](https://github.com/kyoh86/csv2xlsx/workflows/Release/badge.svg)](https://github.com/kyoh86/csv2xlsx/releases)

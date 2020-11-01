@@ -16,4 +16,4 @@ install: test
 	go install -a -ldflags "-X=main.version=$(VERSION) -X=main.commit=$(COMMIT)" ./...
 
 man:
-	go run main.go --help-man > csv2xlsx.1
+	go run . --help-man > csv2xlsx.1
